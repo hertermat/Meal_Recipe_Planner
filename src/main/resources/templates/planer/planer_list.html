@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Planer</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <h2>Manage Planer</h2>
+    <div class="m-2"><a class="h3" th:href="@{/planer/new}">Add New Meal</a></div>
+    <div class="m-2"><a class="h3" href="/users">Return to Profile</a></div>
+    <div th:if="${message}" class="alert alert-success text-center" >
+        [[${message}]]
+    </div>
+</div>
+<div class="container text-center">
+
+    <table  class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Morning Meal</th>
+            <th>Afternoon Meal</th>
+            <th>Snacks</th>
+            <th>Night Meal</th>
+            <th>Completed</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="planer :${planerList}">
+            <tr>
+                <td>[[${planer.id}]]</td>
+                <td>[[${planer.date}]]</td>
+                <td>[[${planer.morningMeal}]]</td>
+                <td>[[${planer.afternoonMeal}]]</td>
+                <td>[[${planer.snacks}]]</td>
+                <td>[[${planer.nightMeal}]]</td>
+                <td>[[${planer.completed}]]</td>
+                <td>
+                    <a class="h4 mr-3" th:href="@{'/planer/edit/'+ ${planer.id}}">Edit</a>
+                    <a class="h4 " th:href="@{'/planer/delete/'+ ${planer.id}}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
