@@ -7,12 +7,15 @@ package ca.gbc.RecipeApp.bootstrap;
 //        * Date:                   November 7th, 2021
 //        * Description:            to have some data for recipe and users in the database to start with
 //        *********************************************************************************
+import ca.gbc.RecipeApp.domain.Ingredient;
 import ca.gbc.RecipeApp.domain.Recipe;
 import ca.gbc.RecipeApp.domain.User;
 import ca.gbc.RecipeApp.repositories.RecipeRepository;
 import ca.gbc.RecipeApp.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
 
 
 @Component
@@ -30,6 +33,8 @@ public class BootStrap implements CommandLineRunner {
         User user1 = new User("Jane", "sue_jones", "$2a$12$igKioMGhbbVcdqahkwWMLOMQHemvQ0qbwy9z1sj9W985rDMMapRQm");
         Recipe recipe1 = new Recipe("pizza", "Italian pizza","2020-11-11");
 
+        recipe1.addIngredient(new Ingredient("mushrooms", new BigDecimal(2)));
+        recipe1.addIngredient(new Ingredient("onion", new BigDecimal(1)));
         user1.getRecipes().add(recipe1);
         recipe1.getUsers().add(user1);
 //

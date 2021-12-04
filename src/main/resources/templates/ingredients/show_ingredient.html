@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.css}"/>-->
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <title>Ingredient</title>
+</head>
+<body>
+
+<div class="container">
+    <br>
+    <h1 class="text-center">Ingredient View Page</h1>
+    <div class="row">
+        <button class="btn btn-outline-primary mt-2 mb-3" onclick="location.href='/'">Main</button>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header" th:text="${ingredient.id}">Recipe Title</div>
+                <div class="card-body">
+
+                    <div class="row">
+                        <p class="col-md-3">Steps :</p>
+                        <p class="col-md-3" th:text="${ingredient.description}"></p>
+                    </div>
+                    <div class="row">
+                        <p class="col-md-3">Date :</p>
+                        <p class="col-md-3" th:text="${ingredient.amount}"></p>
+                    </div>
+                </div>
+            </div>
+            <br>
+<!--            <div class="card">-->
+<!--                <div class="card-header">Ingredients-->
+<!--                    <a class="float-right" href="#" th:href="'/recipe/' + ${recipe.id} + '/ingredients'"><button class="btn btn-sm btn-outline-primary">View</button></a>-->
+<!--                </div>-->
+<!--                <div class="card-body">-->
+<!--                    <ul th:each="ingredient : ${recipe.ingredients}">-->
+<!--                        <li th:text="${ingredient.getAmount()} + ' '  +  ${ingredient.description}"></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <br>-->
+
+        </div>
+    </div>
+
+</div>
+</body>
+
+<script th:src="@{/webjars/jquery/3.4.0/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/1.14.3/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+</html>

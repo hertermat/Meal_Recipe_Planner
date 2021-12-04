@@ -25,9 +25,13 @@ public class Recipe {
     private String title;
     @NotBlank(message = "Description cannot be empty")
     @Size(max = 100)
-    private String description;
+    private String steps;
     //@NotBlank
     private String date;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingredient> ingredients = new HashSet<>();
+
     @ManyToMany
     @JoinTable(name = "user_recipe", joinColumns = @JoinColumn( name = "recipe_id"),  inverseJoinColumns = @JoinColumn( name = "user_id"))
     private Set<User> users = new HashSet<>();
@@ -35,16 +39,24 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String title, String description, String date) {
+    public Recipe(String title, String steps, String date) {
         this.title = title;
-        this.description = description;
+        this.steps = steps;
         this.date = date;
     }
 
-    public Recipe(String title, String description, String date, Set<User> users) {
+    public Recipe(String title, String steps, String date, Set<User> users) {
         this.title = title;
-        this.description = description;
+        this.steps = steps;
         this.date = date;
+        this.users = users;
+    }
+
+    public Recipe(String title, String steps, String date, Set<Ingredient> ingredients, Set<User> users) {
+        this.title = title;
+        this.steps = steps;
+        this.date = date;
+        this.ingredients = ingredients;
         this.users = users;
     }
 
@@ -64,12 +76,12 @@ public class Recipe {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSteps() {
+        return steps;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSteps(String description) {
+        this.steps = steps;
     }
 
     public String getDate() {
@@ -88,6 +100,19 @@ public class Recipe {
         this.users = users;
     }
 
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -106,7 +131,7 @@ public class Recipe {
         return "Recipe{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                ", steps='" + steps + '\'' +
                 ", date=" + date +
                 ", users=" + users +
                 '}';

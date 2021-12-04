@@ -57,6 +57,11 @@ public class RecipeController {
         }
 
     }
+    @RequestMapping("/show/{id}")
+    public String showById(@PathVariable(name = "id") Long id, Model model) {
+        model.addAttribute("recipe", service.get(id));
+        return "recipes/show_recipe";
+    }
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditRecipePage(@PathVariable(name = "id") Long id) {
         ModelAndView mav = new ModelAndView("recipes/edit_recipe");
