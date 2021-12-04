@@ -31,7 +31,7 @@ public class BootStrap implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         User user1 = new User("Jane", "sue_jones", "$2a$12$igKioMGhbbVcdqahkwWMLOMQHemvQ0qbwy9z1sj9W985rDMMapRQm");
-        Recipe recipe1 = new Recipe("pizza", "Italian pizza","2020-11-11");
+        Recipe recipe1 = new Recipe("pizza", "Chop onions and mushrooms","2020-11-11");
 
         recipe1.addIngredient(new Ingredient("mushrooms", new BigDecimal(2)));
         recipe1.addIngredient(new Ingredient("onion", new BigDecimal(1)));

@@ -86,23 +86,16 @@ public class PlanerController {
 
     @GetMapping("/planer/delete/{id}")
     public String deleteMeal(@PathVariable("id") Integer id,RedirectAttributes ra){
-
         try {
             service.delete(id);
             ra.addFlashAttribute("message","Meal has been deleted");
-
 
         } catch (UserNotFoundException e) {
             ra.addFlashAttribute("message", e.getMessage());
             //redirectAttributes.addFlashAttribute("alertClass", "alert-success");
 
-
         }
         return "redirect:/planer";
     }
-
-
-
-
 
 }
