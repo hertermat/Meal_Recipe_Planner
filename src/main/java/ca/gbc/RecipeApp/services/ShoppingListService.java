@@ -6,36 +6,33 @@ package ca.gbc.RecipeApp.services;
 //        * Author(s):              Forough Kiani, Matias Herter, Sehajpreet Kaur Khurana
 //        * Student Number:         101282711, 101272358, 101282557
 //        * Date:                   December 5th, 2021
-//        * Description:            Defining functions for the recipe
+//        * Description:            Defining functions for the shopping list
 //        *********************************************************************************
 
-import ca.gbc.RecipeApp.domain.Recipe;
-import ca.gbc.RecipeApp.repositories.RecipeRepository;
+import ca.gbc.RecipeApp.domain.Ingredient;
+import ca.gbc.RecipeApp.repositories.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
-
 @Service
 @Transactional
-public class RecipeService {
+public class ShoppingListService {
     @Autowired
-    private RecipeRepository recipeRepository;
+    private IngredientRepository ingredientRepository;
 
-    public List<Recipe> listAll(){
-        return recipeRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
+    public List<Ingredient> listAll(){
+        return ingredientRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
     }
-    public void save(Recipe recipe){
-        recipeRepository.save(recipe);
+    public void save(Ingredient ingredient){
+        ingredientRepository.save(ingredient);
     }
-    public Recipe get(Long id){
-        return recipeRepository.findById(id).get();
+    public Ingredient get(Long id){
+        return ingredientRepository.findById(id).get();
     }
     public void delete(Long id){
-        recipeRepository.deleteById(id);
+        ingredientRepository.deleteById(id);
     }
-    public List<Recipe> search(String title){return recipeRepository.findRecipeByTitle(title);}
 }

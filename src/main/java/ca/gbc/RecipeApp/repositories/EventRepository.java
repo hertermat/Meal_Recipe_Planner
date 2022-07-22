@@ -6,12 +6,12 @@ package ca.gbc.RecipeApp.repositories;
 //        * Author(s):              Forough Kiani, Matias Herter, Sehajpreet Kaur Khurana
 //        * Student Number:         101282711, 101272358, 101282557
 //        * Date:                   December 5th, 2021
-//        * Description:            Defining the ingredient repository
+//        * Description:            Defining the event repository
 //        *********************************************************************************
 
-import ca.gbc.RecipeApp.domain.Ingredient;
-import org.springframework.data.jpa.repository.JpaRepository;
+import ca.gbc.RecipeApp.domain.Event;
+import org.springframework.data.repository.CrudRepository;
 
-public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
-//    void deleteById(Long recipeId, Long id);
+public interface EventRepository extends CrudRepository<Event,Integer> {
+    public Long countById(Integer id);
 }

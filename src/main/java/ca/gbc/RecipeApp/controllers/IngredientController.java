@@ -1,5 +1,12 @@
 package ca.gbc.RecipeApp.controllers;
 
+//        * Project:                Recipe App
+//        * Assignment:             Assignment 2
+//        * Author(s):              Forough Kiani, Matias Herter, Sehajpreet Kaur Khurana
+//        * Student Number:         101282711, 101272358, 101282557
+//        * Date:                   December 5th, 2021
+//        * Description:            Implementing the functionalities and endpoints for ingredients
+
 import ca.gbc.RecipeApp.domain.Ingredient;
 import ca.gbc.RecipeApp.domain.Recipe;
 import ca.gbc.RecipeApp.services.IngredientService;

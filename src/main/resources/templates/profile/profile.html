@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+    <h1>User Profile</h1>
+    <br/><br/>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+
+        <tr>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>Password</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="Profile: ${users}">
+            <td th:text="${user.}"></td>
+            <td th:text="${user.loadUserByUsername()}"></td>
+            <td th:text="${user.password}"></td>
+
+            <td>
+                <a th:href="@{'/edit/' + ${user.}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${user.password}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/users">Return to Profile</a>
+</div>
+</body>
+</html>

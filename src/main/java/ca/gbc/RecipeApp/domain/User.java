@@ -2,10 +2,10 @@ package ca.gbc.RecipeApp.domain;
 
 //        *********************************************************************************
 //        * Project:                Recipe App
-//        * Assignment:             Assignment 1
+//        * Assignment:             Assignment 2
 //        * Author(s):              Forough Kiani, Matias Herter, Sehajpreet Kaur Khurana
 //        * Student Number:         101282711, 101272358, 101282557
-//        * Date:                   November 7th, 2021
+//        * Date:                   December 5th, 2021
 //        * Description:            Defining the user table
 //        *********************************************************************************
 
@@ -24,6 +24,8 @@ public class User {
     private String password;
     @ManyToMany(mappedBy = "users")
     private Set<Recipe> recipes = new HashSet<>();
+    private String resetPasswordToken;
+
 
     public User() {
     }
@@ -79,6 +81,14 @@ public class User {
 
     public void setRecipes(Set<Recipe> recipes) {
         this.recipes = recipes;
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
     }
 
     @Override

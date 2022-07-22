@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="ISO-8859-1">
   <title>List Users</title>
@@ -14,6 +14,7 @@
       <h1>
         Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
       </h1>
+      <h3><a th:href="@{/reset_password}">Reset password</a></h3>
       <br />
       <input type="submit" value="Sign Out" />
     </form>
@@ -25,6 +26,12 @@
   <a href="/new">Add a new recipe</a>
   <br />
   <a href="/planer">View Meal Planner</a>
+  <br />
+  <a href="/profile">View my Profile</a>
+  <br />
+  <a href="/events">View Events</a>
+  <br />
+  <a href="/shoppingCart/items">Shopping List</a>
   <br />
   <form th:action="@{/search}"
         method="get">

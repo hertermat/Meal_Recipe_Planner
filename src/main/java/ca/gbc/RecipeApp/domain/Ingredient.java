@@ -1,5 +1,14 @@
 package ca.gbc.RecipeApp.domain;
 
+//        *********************************************************************************
+//        * Project:                Recipe App
+//        * Assignment:             Assignment 2
+//        * Author(s):              Forough Kiani, Matias Herter, Sehajpreet Kaur Khurana
+//        * Student Number:         101282711, 101272358, 101282557
+//        * Date:                   December 5th, 2021
+//        * Description:            Defining the ingredient table
+//        *********************************************************************************
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -14,6 +23,9 @@ public class Ingredient {
 
     @ManyToOne
     private Recipe recipe;
+
+    @ManyToOne
+    private ShoppingList shoppingList;
 
     public Ingredient() {
     }
@@ -61,11 +73,5 @@ public class Ingredient {
         this.recipe = recipe;
     }
 
-//    public Long getRecipe_id() {
-//        return recipe_id;
-//    }
-//
-//    public void setRecipe_id(Long recipe_id) {
-//        this.recipe_id = recipe_id;
-//    }
+
 }

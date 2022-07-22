@@ -3,34 +3,30 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
-    <title>Edit Ingredient</title>
+    <title>Create New Product</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="container text-center">
-    <h1>Edit Ingredient</h1>
+    <h1>Add to the Shopping Cart</h1>
     <br />
     <form action="#" th:action="@{/ingredient/save}" th:object="${ingredient}"
           method="post">
         <div class="m-3">
             <div class="form-group row">
-                <label class="col-4 col-form-label">Ingredient ID: </label>
-                <div class="col-md-4">
-                    <input type="text" id="id" th:field="*{id}" readonly="readonly" />
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-4 col-form-label">Description: </label>
+                <label class="col-4 col-form-label">Ingredient Description: </label>
                 <div class="col-md-4">
                     <input type="text" th:field="*{description}" class="form-control" required />
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-4 col-form-label">Amount: </label>
+                <label class="col-4 col-form-label">Ingredient Amount: </label>
                 <div class="col-md-4">
-                    <input type="number" th:field="*{amount}" class="form-control" required/>
+                    <input th:field="*{amount}" class="form-control"
+                           required></input>
                 </div>
             </div>
             <div>
@@ -40,10 +36,10 @@
         </div>
     </form>
 </div>
-</body>
 <script type="text/javascript">
     function cancelForm(){
-        window.location="[[@{/list}]]"
+        window.location="[[@{/shoppingCart/list}]]"
     }
 </script>
+</body>
 </html>

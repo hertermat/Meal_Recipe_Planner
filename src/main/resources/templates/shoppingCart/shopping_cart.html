@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-    <title>Recipe</title>
+    <title>Shopping Cart</title>
 </head>
 <body>
 
@@ -14,11 +14,11 @@
     <div class="row">
         <div class="col">
             <br>
-            <h1 class="text-center">Ingredients</h1>
+            <h1 class="text-center">Shopping List</h1>
 
             <div class="row float-right mb-3">
-                <button class="btn btn-outline-primary mr-2" onclick="location.href='/list'">Main</button>
-                <a th:href="@{/ingredient/new}"><button class="btn btn-outline-primary">Create Ingredient</button></a>
+                <button class="btn btn-outline-primary mr-2" onclick="location.href='/users'">Profile</button>
+                <a th:href="@{/shoppingCart/new}"><button class="btn btn-outline-primary">Add to Shopping List</button></a>
             </div>
             <table class="table-responsive">
                 <table class="table table-hover">
@@ -26,17 +26,14 @@
                     <tr>
                         <th>ID</th>
                         <th>Description</th>
-                        <th>View</th>
                         <th>Update</th>
                         <th>Delete</th>
-                        <th>Buy</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="ingredient: ${recipe.ingredients}">
+                    <tr th:each="ingredient: ${listIngredients}">
                         <td th:text="${ingredient.id}">id</td>
                         <td th:text="${ingredient.amount} + ' ' + ${ingredient.description}"></td>
-                        <td><a href="#" th:href="@{'/ingredient/' + ${ingredient.id} + '/show'}">View</a></td>
                         <td><a href="#" th:href="@{'/ingredient/' + ${ingredient.id} + '/edit'}">Edit</a></td>
                         <td><a href="#" th:href="@{'/ingredient/' + ${ingredient.id} + '/delete'}">Delete</a></td>
                     </tr>
@@ -52,7 +49,5 @@
 
 
 </body>
-<script th:src="@{/webjars/jquery/3.4.0/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/1.14.3/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+
 </html>
